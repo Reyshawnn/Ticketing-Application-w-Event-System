@@ -96,7 +96,6 @@ public:
 		record.id = counter;
 		counter++;
 
-		incidentList.push_back(record);
 
 		DispatchRecord dRec{ packageRecord(record) };
 		dRec.event = Event::IncidentCreatedEvent;
@@ -111,11 +110,16 @@ public:
 		incidentList.push_back(record);
 	}
 
-	void createdEventHandlerInit(std::function<void(NotificationSystem*,const IncidentRecord&)>& func)
+	//add all createdIncident functions
+	void createdEventHandlerInit(std::function<void(const IncidentRecord&)> func)
 	{
-		eventBus.createdEventHandler(func);
+		eventBus.createdEventStore(func);
 	}
 	
+	void addIncident(const IncidentRecord& record) 
+	{
+		incidentList.push_back(record);
+	}
 private:
 	std::vector<Technician> techList;
 	std::vector<IncidentRecord> incidentList;

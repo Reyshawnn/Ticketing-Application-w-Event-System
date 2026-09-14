@@ -21,9 +21,6 @@
     <ClCompile Include="Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NotificationSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="StatsSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,9 +33,6 @@
     <ClCompile Include="AuditSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Data.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IncidentManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,9 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Events.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NotificationSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StatsSystem.h">

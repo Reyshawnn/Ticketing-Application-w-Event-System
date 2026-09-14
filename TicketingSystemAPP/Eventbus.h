@@ -8,11 +8,13 @@ class EventBus
 {
 public:
 	void publish(const DispatchRecord& record);
-	void createdEventHandler(std::function<void(NotificationSystem*,const IncidentRecord&)>& func);
+	void createdEventStore(std::function<void(const IncidentRecord&)> func);
+	void process();
 
 	
 private:
 	std::vector<std::function<void(const IncidentRecord&)>> incidentCreatedList;
+	//incidentCreatedList functions - UI (reportConfirm), Manager (addIncident), StatsSystem
 	std::vector<std::function<void(const IncidentRecord&)>> incidentAssignedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentResolvedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentReopenedList;

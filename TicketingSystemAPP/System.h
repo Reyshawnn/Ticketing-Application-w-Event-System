@@ -193,22 +193,36 @@ public:
 		}
 	}
 
-	void setupHandlers()
+	void subSystemInit()
 	{
-		std::function<void(NotificationSystem*,const IncidentRecord&)> func(NotificationSystem::reportConfirm);
+		std::function<void(const IncidentRecord&)> func =
+			[&](const IncidentRecord& record)
+			{
+				ui.reportConfirm(record);
+			};
 		manager.createdEventHandlerInit(func);
+
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				manager.addIncident(record);
+			};
 		
+		manager.createdEventHandlerInit(func);
+
+
+
 		
 	}
+	
 
 private:
 	int userInput;
 	UiSystem ui;
-	NotificationSystem noti;
 	IncidentManager manager;
 	AuditSystem audit;
-
-	
 	bool done{ false };
 };
 

@@ -126,11 +126,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AuditSystem.cpp" />
-    <ClCompile Include="Data.cpp" />
     <ClCompile Include="Eventbus.cpp" />
     <ClCompile Include="Events.cpp" />
     <ClCompile Include="IncidentManager.cpp" />
-    <ClCompile Include="NotificationSystem.cpp" />
     <ClCompile Include="StatsSystem.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="TicketingSystemAPP.cpp" />
@@ -142,7 +140,6 @@
     <ClInclude Include="Eventbus.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="IncidentManager.h" />
-    <ClInclude Include="NotificationSystem.h" />
     <ClInclude Include="StatsSystem.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="UiSystem.h" />
