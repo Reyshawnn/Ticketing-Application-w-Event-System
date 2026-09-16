@@ -16,44 +16,49 @@ void EventBus::process()
 		switch (disRec.event)
 		{
 
-		case Event::IncidentCreatedEvent:
-		{
+		case Event::IncidentCreatedEvent:{
+		
 			for (auto& func : incidentCreatedList)
 			{
 				func(disRec.record);
 			}
+			break;
 		}
 
-		case Event::IncidentAssignedEvent:
-		{
+		case Event::IncidentAssignedEvent:{
+		
 			for (auto& func : incidentAssignedList)
 			{
 				func(disRec.record);
 			}
+			break;
 		}
 
-		case Event::IncidentResolvedEvent:
-		{
+		case Event::IncidentResolvedEvent:{
+		
 			for (auto& func : incidentResolvedList)
 			{
 				func(disRec.record);
 			}
+			break;
 		}
 
-		case Event::IncidentReopenedEvent:
-		{
+		case Event::IncidentReopenedEvent:{
+		
 			for (auto& func : incidentReopenedList)
 			{
 				func(disRec.record);
 			}
+			break;
 		}
 
-		case Event::IncidentPriorityChangedEvent:
-		{
+		case Event::IncidentPriorityChangedEvent:{
+		
 			for (auto& func : incidentPriorityChangeList)
 			{
 				func(disRec.record);
 			}
+			break;
 		}
 
 

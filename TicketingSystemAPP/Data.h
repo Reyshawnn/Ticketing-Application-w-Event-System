@@ -33,6 +33,8 @@ struct Technician
 	std::string_view name;
 	int incidents;
 	int resolvedIncidents;
+	bool available{ true };
+
 };
 
 enum class Event
@@ -42,7 +44,24 @@ enum class Event
 	IncidentResolvedEvent,
 	IncidentReopenedEvent,
 	IncidentPriorityChangedEvent,
+	IncidentCommentAdded,
+	IncidentArchived,
 
+};
+
+enum class Priority 
+{
+	Low,
+	medium,
+	high,
+};
+
+enum class Status
+{
+	Unassigned,
+	Assigned,
+	Resolved,
+	Archived,
 };
 
 struct IncidentRecord 
@@ -52,8 +71,8 @@ struct IncidentRecord
 	std::string_view description;
 	std::string_view reporter;
 	Technician tech;
-	std::string priority;
-	std::string status;
+	Priority priority;
+	Status status;
 	std::string_view createTime;
 	std::string updatedTime;
 	std::string comment;

@@ -84,12 +84,15 @@ public:
 		{
 			//create record routine and eventual event hit
 			manager.createRecord();
-
 			
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 
@@ -113,11 +116,15 @@ public:
 		std::cin >> userInput;
 		if (userInput == 1)
 		{
-			//create record routine and eventual event hit
+			manager.assignTechnician();
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 
@@ -127,11 +134,15 @@ public:
 		std::cin >> userInput;
 		if (userInput == 1)
 		{
-			//create record routine and eventual event hit
+			manager.changePriority();
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 
@@ -141,11 +152,15 @@ public:
 		std::cin >> userInput;
 		if (userInput == 1)
 		{
-			//create record routine and eventual event hit
+			manager.addComment();
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 
@@ -155,11 +170,15 @@ public:
 		std::cin >> userInput;
 		if (userInput == 1)
 		{
-			//create record routine and eventual event hit
+			manager.resolveIncident();
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 
@@ -169,11 +188,15 @@ public:
 		std::cin >> userInput;
 		if (userInput == 1)
 		{
-			//create record routine and eventual event hit
+			manager.openIncident();
+		}
+		else if (userInput == 2)
+		{
+			return;
 		}
 		else
 		{
-
+			std::cout << "invalid input " << "\n";
 		}
 	}
 

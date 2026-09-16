@@ -172,7 +172,7 @@ void UiSystem::priorityConfirm(const IncidentRecord& record) const //PriorityCha
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
 
-	std::cout << "record # " << record.id << "priority changed to " << record.priority << "\n";
+	std::cout << "record # " << record.id << "priority changed to " << static_cast<int>(record.priority) << "\n";
 
 
 

@@ -26,7 +26,7 @@ void AuditSystem::priorityConfirm(const IncidentRecord& record)
 	basicString.append(std::to_string(record.id));
 
 	std::string basicString2{ " priority changed to " };
-	basicString2.append(record.priority);
+	//basicString2.append(record.priority);
 
 	basicString.append(basicString2);
 
