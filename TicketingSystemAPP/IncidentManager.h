@@ -35,6 +35,8 @@ public:
 	{
 		//this can be a loop that asks the user for the information that creates a incident record
 		//will add to incident list
+
+		std::system("cls");
 		IncidentRecord record;
 		std::string userInput;
 		int userInputInt;
@@ -43,14 +45,16 @@ public:
 		std::cin >> userInput;
 
 		record.title = userInput;
-		userInput.clear();
+	
+		std::system("cls");
 
 		std::cout << " Set the description of your incident " << "\n";
 		std::cin >> userInput;
 
 
 		record.description = userInput;
-		userInput.clear();
+		std::system("cls");
+	
 
 
 		std::cout << " enter in your name" << "\n";
@@ -58,15 +62,17 @@ public:
 
 
 		record.reporter = userInput;
-		userInput.clear();
+		std::system("cls");
+		
 		
 
 
-		std::cout << " enter in the priority of the incident" << "\n";
+		std::cout << " enter in the priority of the incident: 1 = LOW, 2 = Medium, 3 = High " << "\n";
 		std::cin >> userInputInt;
 
 
 		record.priority = Priority{ userInputInt };
+		std::system("cls");
 		userInputInt = 0;
 
 
@@ -75,22 +81,17 @@ public:
 
 
 		record.createTime = userInput;
-		userInput.clear();
+		std::system("cls");
+		;
 
-
-		std::cout << " enter in your updated time  HH:MM" << "\n";
-		std::cin >> userInput;
-
-
-		record.updatedTime = userInput;
-		userInput.clear();
 
 		std::cout << " enter in any addional comments " << "\n";
 		std::cin >> userInput;
 
 
 		record.comment = userInput;
-		userInput.clear();
+		std::system("cls");
+		
 
 
 		record.id = counter;
@@ -102,6 +103,7 @@ public:
 		dRec.event = Event::IncidentCreatedEvent;
 
 		eventBus.publish(dRec);
+		eventBus.process();
 
 	}
 	void archiveRecord(IncidentRecord& record)
@@ -120,6 +122,11 @@ public:
 	void createdEventHandlerInit(std::function<void(const IncidentRecord&)> func)
 	{
 		eventBus.createdEventStore(func);
+	}
+
+	void assignedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.assignedEventStore(func);
 	}
 	
 	void addIncident(const IncidentRecord& record) 
@@ -158,6 +165,7 @@ public:
 		std::string userString;
 		while (true)
 		{
+			std::system("cls");
 			std::cout << "Enter a id number of the record you want to comment on ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)
@@ -188,12 +196,14 @@ public:
 		int userInput;
 		while (true)
 		{
+			std::system("cls");
 			std::cout << "Enter a id number of the record you want to change the priority of ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)
 			{
 				if (record.id == userInput)
 				{
+					std::system("cls");
 					std::cout << "Make the priority change here " << "\n";
 					std::cout << "--------------------------------" << "\n";
 					std::cout << "Priority LOW (0), MEDIUM (1), HIGH(2) : ";
@@ -218,6 +228,7 @@ public:
 		int userInput;
 		while (true)
 		{
+			std::system("cls");
 			std::cout << "Enter a id number of the record that has been resolved ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)
@@ -242,6 +253,7 @@ public:
 		int userInput;
 		while (true)
 		{
+			std::system("cls");
 			std::cout << "Enter a id number of the record that will be reopened ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)
@@ -267,6 +279,7 @@ public:
 		int userInput;
 		while (true)
 		{
+			std::system("cls");
 			std::cout << "Enter a id number of the record that will be reopened ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)

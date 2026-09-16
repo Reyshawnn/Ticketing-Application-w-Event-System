@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
 #include "Data.h"
+#include <format>
 struct UiSystem
 {
 	void menuUI() const;
 	void reportUI() const;
-	void printRecord(const int id); //Will take in a record ID
+	void printRecord(const IncidentRecord& incident); //Will take in a record ID
 	void viewRecord() const;
 	void assignTech() const;
 	void priorityChange() const;

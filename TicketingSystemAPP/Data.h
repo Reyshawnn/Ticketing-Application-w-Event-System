@@ -67,13 +67,13 @@ enum class Status
 struct IncidentRecord 
 {
 	int id{};
-	std::string_view title;
+	std::string title;
 	std::string_view description;
-	std::string_view reporter;
+	std::string reporter;
 	Technician tech;
 	Priority priority;
 	Status status;
-	std::string_view createTime;
+	std::string createTime;
 	std::string updatedTime;
 	std::string comment;
 };

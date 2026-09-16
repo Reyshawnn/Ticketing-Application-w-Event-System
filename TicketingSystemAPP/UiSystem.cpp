@@ -21,11 +21,15 @@ void UiSystem::menuUI() const
 
 }
 
-void UiSystem::printRecord(const int id) //Will take in a record ID
+void UiSystem::printRecord(const IncidentRecord& record) //Will take in a record ID
 {
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
+	std::cout << "<-------- Incident Record -------->" << "\n";
+	std::cout << "ID: " << record.id << "\n";
+	std::cout << "Name: " << record.reporter << "\n";
+	std::cout << "Priority: " << static_cast<int>(record.priority) << "\n";
+	std::cout << "Time: " << record.createTime << "\n";
+
+
 
 	//loop that finds the record ID in the list (maybe hashmap soon)
 
@@ -45,7 +49,7 @@ void UiSystem::viewRecord() const
 
 void UiSystem::reportUI() const
 {
-
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -63,6 +67,7 @@ void UiSystem::reportUI() const
 
 void UiSystem::assignTech() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -75,6 +80,7 @@ void UiSystem::assignTech() const
 
 void UiSystem::priorityChange() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -87,6 +93,7 @@ void UiSystem::priorityChange() const
 
 void UiSystem::commentAdd() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -99,6 +106,7 @@ void UiSystem::commentAdd() const
 
 void UiSystem::resolveReport() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -113,6 +121,7 @@ void UiSystem::resolveReport() const
 
 void UiSystem::reopenReport() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -127,6 +136,7 @@ void UiSystem::reopenReport() const
 
 void UiSystem::deleteRecord() const
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -144,12 +154,16 @@ void UiSystem::deleteRecord() const
 
 void UiSystem::reportConfirm(const IncidentRecord& record) //IncidentCreated
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "Incident confirmed! " << "\n";
 	std::cout << "Information overview: " << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 	//make an overloaded function for printing records
 
 
@@ -158,6 +172,7 @@ void UiSystem::reportConfirm(const IncidentRecord& record) //IncidentCreated
 
 void UiSystem::confirmTech(const IncidentRecord& record) const //TechnicianAssigned
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -168,6 +183,7 @@ void UiSystem::confirmTech(const IncidentRecord& record) const //TechnicianAssig
 
 void UiSystem::priorityConfirm(const IncidentRecord& record) const //PriorityChanged
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -180,6 +196,7 @@ void UiSystem::priorityConfirm(const IncidentRecord& record) const //PriorityCha
 
 void UiSystem::commentConfirm(const IncidentRecord& record) const //CommentAdded
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -191,6 +208,7 @@ void UiSystem::commentConfirm(const IncidentRecord& record) const //CommentAdded
 
 void UiSystem::resolveConfirm(const IncidentRecord& record) const //ResolvedIncident
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -202,6 +220,7 @@ void UiSystem::resolveConfirm(const IncidentRecord& record) const //ResolvedInci
 
 void UiSystem::reopenConfirm(const IncidentRecord& record) const //ReOpenIncident
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -213,6 +232,7 @@ void UiSystem::reopenConfirm(const IncidentRecord& record) const //ReOpenInciden
 
 void UiSystem::deleteConfirm(const IncidentRecord& record) const //IncidentDeleted
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
@@ -224,6 +244,7 @@ void UiSystem::deleteConfirm(const IncidentRecord& record) const //IncidentDelet
 
 void UiSystem::archiveConfirm(const IncidentRecord& record) const //IncidentArchived
 {
+	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";

@@ -80,6 +80,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			//create record routine and eventual event hit
@@ -100,6 +101,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			//create record routine and eventual event hit
@@ -114,6 +116,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			manager.assignTechnician();
@@ -132,6 +135,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			manager.changePriority();
@@ -150,6 +154,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			manager.addComment();
@@ -168,6 +173,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			manager.resolveIncident();
@@ -186,6 +192,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+		
 		if (userInput == 1)
 		{
 			manager.openIncident();
@@ -204,6 +211,7 @@ public:
 	{
 		int userInput;
 		std::cin >> userInput;
+	
 		switch (userInput)
 		{
 		case 1:
@@ -226,6 +234,14 @@ public:
 		manager.createdEventHandlerInit(func);
 
 
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.printRecord(record);
+			};
+
+		manager.createdEventHandlerInit(func);
+
 
 		func =
 			[&](const IncidentRecord& record)
@@ -236,8 +252,16 @@ public:
 		manager.createdEventHandlerInit(func);
 
 
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.reportConfirm(record);
+			};
+
+		manager.createdEventHandlerInit(func);
 
 		
+
 	}
 	
 

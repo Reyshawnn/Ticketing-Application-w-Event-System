@@ -8,6 +8,7 @@ int main()
 {
     System system;
 
+    system.subSystemInit();
     system.menu();
 }
 
