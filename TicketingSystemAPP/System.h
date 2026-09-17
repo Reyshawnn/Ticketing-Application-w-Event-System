@@ -105,6 +105,7 @@ public:
 		if (userInput == 1)
 		{
 			//create record routine and eventual event hit
+			manager.viewIncident();
 		}
 		else
 		{
@@ -226,6 +227,8 @@ public:
 
 	void subSystemInit()
 	{
+		//CreatedEvent function setup------------------------------------------------------//
+
 		std::function<void(const IncidentRecord&)> func =
 			[&](const IncidentRecord& record)
 			{
@@ -260,7 +263,136 @@ public:
 
 		manager.createdEventHandlerInit(func);
 
-		
+		//AssignedEvent function setup------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.confirmTech(record);
+			};
+
+		manager.assignedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.confirmTech(record);
+			};
+
+		manager.assignedEventHandlerInit(func);
+
+
+		//PriorityChangedEvent function setup-----------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.priorityConfirm(record);
+			};
+
+		manager.priorityChangedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.priorityConfirm(record);
+			};
+
+		manager.priorityChangedEventHandlerInit(func);
+
+
+		//CommentAddedEvent-------------------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.commentConfirm(record);
+			};
+
+		manager.commentAddedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.commentConfirm(record);
+			};
+
+		manager.commentAddedEventHandlerInit(func);
+
+
+		//resolveEvent function setup---------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.resolveConfirm(record);
+			};
+
+		manager.resolvedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.resolveConfirm(record);
+			};
+
+		manager.resolvedEventHandlerInit(func);
+
+
+		//reopenEvent Function setup-----------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.reopenConfirm(record);
+			};
+
+		manager.reopenedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.reopenConfirm(record);
+			};
+
+		manager.reopenedEventHandlerInit(func);
+
+
+		//ArchivedEvent Function setup-----------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.archiveConfirm(record);
+			};
+
+		manager.archivedEventHandlerInit(func);
+
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				audit.archiveConfirm(record);
+			};
+
+		manager.archivedEventHandlerInit(func);
+
+
+		//IncidentViewEvent Function setup-----------------------------------------------------------//
+
+		func =
+			[&](const IncidentRecord& record)
+			{
+				ui.printRecord(record);
+			};
+
+		manager.viewEventHandlerInit(func);
+
 
 	}
 	

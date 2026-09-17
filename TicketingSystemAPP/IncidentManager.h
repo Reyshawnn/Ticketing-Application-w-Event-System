@@ -3,6 +3,7 @@
 #include <vector>
 #include <Data.h>
 #include <Eventbus.h>
+#include <UiSystem.h>
 
 
 /*
@@ -116,6 +117,8 @@ public:
 		DispatchRecord dRec{ packageRecord(record) };
 		dRec.event = Event::IncidentArchived;
 		eventBus.publish(dRec);
+		eventBus.process();
+
 	}
 
 	//add all createdIncident functions
@@ -128,7 +131,37 @@ public:
 	{
 		eventBus.assignedEventStore(func);
 	}
+
+	void priorityChangedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.priorityChangeEventStore(func);
+	}
+
+	void resolvedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.resolvedEventStore(func);
+	}
+
+	void reopenedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.reopenedEventStore(func);
+	}
+
+	void commentAddedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.commentAddedEventStore(func);
+	}
+
+	void archivedEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.archivedEventStore(func);
+	}
 	
+	void viewEventHandlerInit(std::function<void(const IncidentRecord&)> func)
+	{
+		eventBus.viewEventStore(func);
+	}
+
 	void addIncident(const IncidentRecord& record) 
 	{
 		incidentList.push_back(record);
@@ -149,6 +182,7 @@ public:
 					DispatchRecord dRec{ packageRecord(record) };
 					dRec.event = Event::IncidentAssignedEvent;
 					eventBus.publish(dRec);
+					eventBus.process();
 				}
 				else if (recordAssigned > 3)
 				{
@@ -180,6 +214,7 @@ public:
 					DispatchRecord dRec{ packageRecord(record) };
 					dRec.event = Event::IncidentCommentAdded;
 					eventBus.publish(dRec);
+					eventBus.process();
 
 					break;
 				}
@@ -214,6 +249,7 @@ public:
 					DispatchRecord dRec{ packageRecord(record) };
 					dRec.event = Event::IncidentPriorityChangedEvent;
 					eventBus.publish(dRec);
+					eventBus.process();
 					break;
 				}
 			}
@@ -239,6 +275,7 @@ public:
 					DispatchRecord dRec{ packageRecord(record) };
 					dRec.event = Event::IncidentResolvedEvent;
 					eventBus.publish(dRec);
+					eventBus.process();
 					break;
 				}
 			}
@@ -263,6 +300,11 @@ public:
 					if (record.status == Status::Archived || record.status == Status::Resolved)
 					{
 						record.status = Status::Unassigned;
+						DispatchRecord dRec{ packageRecord(record) };
+						dRec.event = Event::IncidentReopenedEvent;
+						eventBus.publish(dRec);
+						eventBus.process();
+
 					}
 					
 					break;
@@ -280,13 +322,17 @@ public:
 		while (true)
 		{
 			std::system("cls");
-			std::cout << "Enter a id number of the record that will be reopened ";
+			std::cout << "Enter a id number of the record that printed ";
 			std::cin >> userInput;
 			for (auto& record : incidentList)
 			{
 				if (record.id == userInput)
 				{
-					//std::cout << record; need a overloaded print
+					DispatchRecord dRec{ packageRecord(record) };
+					dRec.event = Event::IncidentViewEvent;
+					eventBus.publish(dRec);
+					eventBus.process();
+
 
 					break;
 				}

@@ -50,6 +50,12 @@ void EventBus::archivedEventStore(std::function<void(const IncidentRecord&)> fun
 	incidentArchivedList.push_back(func);
 }
 
+void EventBus::viewEventStore(std::function<void(const IncidentRecord&)> func)
+{
+	incidentViewList.push_back(func);
+}
+
+
 
 
 void EventBus::process()
@@ -103,6 +109,17 @@ void EventBus::process()
 			}
 			break;
 		}
+
+		case Event::IncidentViewEvent:{
+
+			for (auto& func : incidentViewList)
+			{
+				func(disRec.record);
+			}
+			break;
+		}
+
+
 
 
 		}

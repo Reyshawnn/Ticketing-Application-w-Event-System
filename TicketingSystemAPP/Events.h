@@ -1,4 +1,4 @@
-#pragma once
+pragma once
 #include <Data.h>
 //events are sets of information so we will use structs
 

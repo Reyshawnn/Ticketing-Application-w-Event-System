@@ -127,7 +127,6 @@
   <ItemGroup>
     <ClCompile Include="AuditSystem.cpp" />
     <ClCompile Include="Eventbus.cpp" />
-    <ClCompile Include="Events.cpp" />
     <ClCompile Include="IncidentManager.cpp" />
     <ClCompile Include="StatsSystem.cpp" />
     <ClCompile Include="System.cpp" />
@@ -138,7 +137,6 @@
     <ClInclude Include="AuditSystem.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Eventbus.h" />
-    <ClInclude Include="Events.h" />
     <ClInclude Include="IncidentManager.h" />
     <ClInclude Include="StatsSystem.h" />
     <ClInclude Include="System.h" />

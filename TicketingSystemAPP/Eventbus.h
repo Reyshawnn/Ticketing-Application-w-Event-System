@@ -27,18 +27,19 @@ public:
 	void priorityChangeEventStore(std::function<void(const IncidentRecord&)> func);
 	void commentAddedEventStore(std::function<void(const IncidentRecord&)> func);
 	void archivedEventStore(std::function<void(const IncidentRecord&)> func);
+	void viewEventStore(std::function<void(const IncidentRecord&)> func);
 	void process();
 
 	
 private:
 	std::vector<std::function<void(const IncidentRecord&)>> incidentCreatedList;
-	//incidentCreatedList functions - UI (reportConfirm), Manager (addIncident), StatsSystem, Audit (reportConfirm)
 	std::vector<std::function<void(const IncidentRecord&)>> incidentAssignedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentResolvedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentReopenedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentPriorityChangeList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentCommentChangedList;
 	std::vector<std::function<void(const IncidentRecord&)>> incidentArchivedList;
+	std::vector<std::function<void(const IncidentRecord&)>> incidentViewList;
 	std::vector<DispatchRecord>dispatchedRecords;
 };
 

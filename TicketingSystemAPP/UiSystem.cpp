@@ -23,26 +23,18 @@ void UiSystem::menuUI() const
 
 void UiSystem::printRecord(const IncidentRecord& record) //Will take in a record ID
 {
+	std::system("cls");
 	std::cout << "<-------- Incident Record -------->" << "\n";
 	std::cout << "ID: " << record.id << "\n";
 	std::cout << "Name: " << record.reporter << "\n";
 	std::cout << "Priority: " << static_cast<int>(record.priority) << "\n";
 	std::cout << "Time: " << record.createTime << "\n";
 
-
-
 	//loop that finds the record ID in the list (maybe hashmap soon)
 
 }
 
-void UiSystem::viewRecord() const
-{
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
-	//loop that prints all the incident info in list
-}
 
 
 // Selection routines
@@ -148,16 +140,28 @@ void UiSystem::deleteRecord() const
 
 }
 
-//----------------------------------------------------------------//
-
-// Confirmation UI 
-
-void UiSystem::reportConfirm(const IncidentRecord& record) //IncidentCreated
+void UiSystem::viewRecord() const
 {
 	std::system("cls");
 	std::cout << "------------------------------------------- " << "\n";
 	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
 	std::cout << "------------------------------------------- " << "\n";
+
+	std::cout << "[1] View a record " << "\n";
+	std::cout << "[2] Go Back" << "\n";
+
+
+}
+
+//----------------------------------------------------------------//
+
+// Confirmation UI 
+
+//-----------------------------------------------------------------//
+
+void UiSystem::reportConfirm(const IncidentRecord& record) //IncidentCreated
+{
+	std::system("cls");
 
 	std::cout << "Incident confirmed! " << "\n";
 	std::cout << "Information overview: " << "\n";
@@ -173,22 +177,22 @@ void UiSystem::reportConfirm(const IncidentRecord& record) //IncidentCreated
 void UiSystem::confirmTech(const IncidentRecord& record) const //TechnicianAssigned
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "Technician assigned to record # " << record.id << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 }
 
 void UiSystem::priorityConfirm(const IncidentRecord& record) const //PriorityChanged
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "record # " << record.id << "priority changed to " << static_cast<int>(record.priority) << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 
@@ -197,11 +201,11 @@ void UiSystem::priorityConfirm(const IncidentRecord& record) const //PriorityCha
 void UiSystem::commentConfirm(const IncidentRecord& record) const //CommentAdded
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "Comment Added to incident # " << record.id << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 }
@@ -209,11 +213,11 @@ void UiSystem::commentConfirm(const IncidentRecord& record) const //CommentAdded
 void UiSystem::resolveConfirm(const IncidentRecord& record) const //ResolvedIncident
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "Incident # " << record.id << "resolved" << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 }
@@ -221,11 +225,11 @@ void UiSystem::resolveConfirm(const IncidentRecord& record) const //ResolvedInci
 void UiSystem::reopenConfirm(const IncidentRecord& record) const //ReOpenIncident
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "incident # " << record.id << " has been reopened" << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 }
@@ -233,11 +237,11 @@ void UiSystem::reopenConfirm(const IncidentRecord& record) const //ReOpenInciden
 void UiSystem::deleteConfirm(const IncidentRecord& record) const //IncidentDeleted
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "incident # " << record.id << " has been deleted" << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 }
@@ -245,11 +249,11 @@ void UiSystem::deleteConfirm(const IncidentRecord& record) const //IncidentDelet
 void UiSystem::archiveConfirm(const IncidentRecord& record) const //IncidentArchived
 {
 	std::system("cls");
-	std::cout << "------------------------------------------- " << "\n";
-	std::cout << "ZeroDay Inc. Incident Management System " << "\n";
-	std::cout << "------------------------------------------- " << "\n";
 
 	std::cout << "incident # " << record.id << " has been archived" << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
+	std::cout << "\n";
 
 
 }

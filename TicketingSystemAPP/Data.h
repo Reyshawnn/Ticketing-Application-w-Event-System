@@ -46,6 +46,7 @@ enum class Event
 	IncidentPriorityChangedEvent,
 	IncidentCommentAdded,
 	IncidentArchived,
+	IncidentViewEvent,
 
 };
 
